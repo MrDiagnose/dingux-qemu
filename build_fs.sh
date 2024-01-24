@@ -22,14 +22,16 @@ export PATH="/usr/local/bin:$PATH"
 # build kernel
 mkdir -p /opt
 cd /opt
-wget http://www.treewalker.org/opendingux/opendingux-toolchain.2012-06-16.tar.bz2
+#wget http://www.treewalker.org/opendingux/opendingux-toolchain.2012-06-16.tar.bz2
+wget https://web.archive.org/web/20190316100440/http://www.treewalker.org/opendingux/opendingux-toolchain.2012-06-16.tar.bz2
 tar xf opendingux-toolchain.2012-06-16.tar.bz2
 rm opendingux-toolchain.2012-06-16.tar.bz2
 cd /work
 git clone -b jz-3.16-qemu https://github.com/dmitrysmagin/linux.git
 cd linux
 export ARCH=mips
-export CROSS_COMPILE=/opt/opendingux-toolchain/usr/bin/mipsel-linux-
+#export CROSS_COMPILE=/opt/opendingux-toolchain/usr/bin/mipsel-linux-
+export CROSS_COMPILE=/opt/opendingux-toolchain/usr/bin/mipsel-unknown-linux-uclibc-
 make gcw0-qemu_defconfig
 make
 mv vmlinux /pwd
@@ -42,9 +44,13 @@ git clone -b opendingux-2012.11 https://github.com/dmitrysmagin/opendingux-build
 cd opendingux-buildroot
 mkdir dl
 cd dl
-curl https://svwh.dl.sourceforge.net/project/alleg/allegro/4.4.2/allegro-4.4.2.tar.gz -O
+#curl https://svwh.dl.sourceforge.net/project/alleg/allegro/4.4.2/allegro-4.4.2.tar.gz -O
+#curl https://github.com/liballeg/allegro5/releases/download/4.4.2/allegro-4.4.2.tar.gz -O
+curl https://master.dl.sourceforge.net/project/alleg/allegro/4.4.2/allegro-4.4.2.tar.gz -O
 curl https://master.dl.sourceforge.net/project/libpng/libpng12/older-releases/1.2.52/libpng-1.2.52.tar.bz2 -O
-curl https://svwh.dl.sourceforge.net/project/dejavu/dejavu/2.33/dejavu-fonts-ttf-2.33.tar.bz2 -O
+#curl https://svwh.dl.sourceforge.net/project/dejavu/dejavu/2.33/dejavu-fonts-ttf-2.33.tar.bz2 -O
+curl https://master.dl.sourceforge.net/project/dejavu/dejavu/2.33/dejavu-fonts-ttf-2.33.tar.bz2 -O
+
 cd ..
 sed -i -e "s/\$(HOST_DIR)\/usr\/bin\/cmake/\/usr\/local\/bin\/cmake/g" ./package/pkg-cmake.mk
 make a380_defconfig
