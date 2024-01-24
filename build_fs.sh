@@ -34,7 +34,7 @@ export ARCH=mips
 #export CROSS_COMPILE=/opt/opendingux-toolchain/usr/bin/mipsel-linux-
 export CROSS_COMPILE=/opt/opendingux-toolchain/usr/bin/mipsel-unknown-linux-uclibc-
 make gcw0-qemu_defconfig
-make
+make -j4
 mv vmlinux /pwd
 cd ..
 rm -rf linux
@@ -55,6 +55,6 @@ curl https://master.dl.sourceforge.net/project/dejavu/dejavu/2.33/dejavu-fonts-t
 cd ..
 sed -i -e "s/\$(HOST_DIR)\/usr\/bin\/cmake/\/usr\/local\/bin\/cmake/g" ./package/pkg-cmake.mk
 make a380_defconfig
-make
+make -j4
 mv output/images/rootfs.squashfs /pwd
 
