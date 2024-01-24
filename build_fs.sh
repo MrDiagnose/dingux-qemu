@@ -2,7 +2,8 @@
 
 # install dependencies
 apt-get update
-apt-get install -y build-essential g++ bison flex texinfo mercurial subversion gettext bc libncurses5-dev git wget curl unzip libstdc++6:i386
+#apt-get install -y build-essential g++ bison flex texinfo mercurial subversion gettext bc libncurses5-dev git wget curl unzip libstdc++6:i386
+apt-get install -y build-essential g++ bison flex texinfo mercurial subversion gettext bc libncurses5-dev git wget curl unzip
 ln -s /usr/include /usr/include/ncurses
 
 # prepare work dir
