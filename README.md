@@ -6,7 +6,7 @@ Almost code is quoted from below:
 http://prizma.bmstu.ru/~exmortis/posts/2015-04-23-opendingux-qemu.html
 
 ## Usage
-    git clone https://github.com/gitcrtn/dingux-qemu.git
+    git clone https://github.com/MrDiagnose/dingux-qemu.git
     cd dingux-qemu
     chmod +x *.sh
 
